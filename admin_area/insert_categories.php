@@ -3,16 +3,16 @@ include('../includes/connect.php');
 if (isset($_POST['cat_insert'])) {
     $category_title = $_POST['cat_title'];
 
-    $select_query = "SELECT * FROM category WHERE category_name='$category_title'";
+    $select_query = "SELECT * FROM category WHERE category_name = '$category_title'";
     $result_search = mysqli_query($connection, $select_query);
     $number = mysqli_num_rows($result_search);
     if ($number > 0) {
-        echo "<script>alert('This category is present in database')<script/>";
+        echo "<script>alert('This category is present in database')</script>";
     } else {
         $insert_query = "INSERT into category (category_name) VALUES ('$category_title')";
         $result_insert = mysqli_query($connection, $insert_query);
         if ($result_insert) {
-            echo "<script>alert('Inserted Successfully')<script/>";
+            echo "<script>alert('Inserted Successfully')</script>";
         }
     }
 }
