@@ -27,8 +27,7 @@
             </div>
             <div class="col-md-11">
                 <div class="d-flex">
-                    <div class="me-2 bg-info text-white p-2"><a href="" class="text-white text-decoration-none">Insert Product</a></div>
-                    <div class="me-2 bg-info text-white p-2"><a href="" class="text-white text-decoration-none">Insert Product</a></div>
+                    <div class="me-2 bg-info text-white p-2"><a href="index.php?insert_product" class="text-white text-decoration-none">Insert Product</a></div>
                     <div class="me-2 bg-info text-white p-2"><a href="" class="text-white text-decoration-none">View Product</a></div>
                     <div class="me-2 bg-info text-white p-2"><a href="index.php?insert_category" class="text-white text-decoration-none">Insert Categories</a></div>
                     <div class="me-2 bg-info text-white p-2"><a href="" class="text-white text-decoration-none">View Categories</a></div>
@@ -50,6 +49,9 @@
             }
             if(isset($_GET['insert_brand'])){
                 include('insert_brands.php');
+            }
+            if(isset($_GET['insert_product'])){
+                include('insert_product.php');
             }
         ?>
     </div>
