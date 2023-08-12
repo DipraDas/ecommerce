@@ -1,3 +1,51 @@
+<!-- database connection -->
+<?php
+include('../includes/connect.php');
+if(isset($_POST['insert_product'])){
+    $product_title = $_POST['product_title'];
+    $product_description = $_POST['product_description'];
+    $product_keywords = $_POST['product_keywords'];
+    $product_category = $_POST['product_category'];
+    $product_brand = $_POST['product_brand'];
+    $product_price = $_POST['product_price'];
+
+    $product_image1 = $_FILES['product_image1']['name'];
+    $product_image2 = $_FILES['product_image2']['name'];
+    $product_image3 = $_FILES['product_image3']['name'];
+
+    $temp_image1 = $_FILES['product_image1']['tmp_name'];
+    $temp_image2 = $_FILES['product_image2']['tmp_name'];
+    $temp_image3 = $_FILES['product_image3']['tmp_name'];
+
+
+    if($product_title == '' or 
+    $product_description == '' or 
+    $product_keywords == '' or
+    $product_category == '' or  
+    $product_brand == '' or
+    $product_price == '' or
+    $product_image1 == '' or
+    $product_image2 == '' or
+    $product_image3 == ''){
+        echo "<script>alert('Please fill all the inputs')</script>";
+        exit();
+    }else{
+        move_uploaded_file($temp_image1, "./product_images/$product_image1");
+        move_uploaded_file($temp_image2, "./product_images/$product_image2");
+        move_uploaded_file($temp_image3, "./product_images/$product_image3");
+
+        $insert_product = "INSERT INTO `products` (product_title, product_description, product_keyword, category_id, brand_id, product_price, product_image1, product_image2, product_image3, date, status) VALUES ('$product_title', '$product_description', '$product_keywords', '$product_category', '$product_brand', '$product_price', '$product_image1', '$product_image2', '$product_image3', NOW(), 'true')";
+        // var_dump($insert_product);
+        $result_query = mysqli_query($connection, $insert_product);
+        if($result_query){
+            echo "<script>alert('Prodict inserted successfully')</script>";
+        }
+        else{
+            echo "<script>alert('Not successfull')</script>";
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,15 +86,29 @@
                 <select name="product_category" id="" class="form-select">
                     <option value="">Select a Category</option>
                     <?php
+                    $selct_categories = 'SELECT * FROM `category`';
+                    $result_categories = mysqli_query($connection, $selct_categories);
+                    while ($row_data = mysqli_fetch_assoc($result_categories)) {
+                        $category_title = $row_data['category_name'];
+                        $category_id = $row_data['category_id'];
+                        echo "<option value='$category_id'>$category_title</option>";
+                    }
                     ?>
-                    <option value=""></option>
                 </select>
             </div>
             <!-- brand  -->
             <div class="form-outline mb-4 w-50 mx-auto">
                 <select name="product_brand" id="" class="form-select">
                     <option value="">Select a Brand</option>
-                    <option value=""></option>
+                    <?php
+                    $selct_brands = 'SELECT * FROM `brand`';
+                    $result_brands = mysqli_query($connection, $selct_brands);
+                    while ($row_data = mysqli_fetch_assoc($result_brands)) {
+                        $brand_title = $row_data['brand_name'];
+                        $brand_id = $row_data['brand_id'];
+                        echo "<option value='$brand_id'>$brand_title</option>";
+                    }
+                    ?>
                 </select>
             </div>
             <!-- image1  -->
