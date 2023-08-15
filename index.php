@@ -71,21 +71,37 @@ include('./includes/connect.php');
     <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium soluta quo, ratione architecto aspernatur repellat.</p>
   </div>
   <!-- Forth Child  -->
-  <div class="row">
+  <div class="row container mx-auto">
     <div class="col-md-10">
       <h4>Product</h4>
       <div class="row">
-        <div class="col-md-4">
-          <div class="card">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYnc4owRRH-m0i5-4t-xyiRMvzvhu-QAVF_g&usqp=CAU" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-info">Add to cart</a>
-              <a href="#" class="btn btn-secondary">View More</a>
+
+        <?php
+        $select_query = "SELECT * FROM `products` ORDER BY rand() LIMIT 0,9";
+        $result_query = mysqli_query($connection, $select_query);
+        while ($row = mysqli_fetch_assoc($result_query)) {
+          $product_title = $row['product_name'];
+          $product_description = $row['product_description'];
+          $product_keywords = $row['product_keywords'];
+          $product_category = $row['product_category'];
+          $product_brand = $row['product_brand'];
+          $product_price = $row['product_price'];
+          $product_image = $row['product_image1'];
+          echo "
+          <div class='col-md-4'>
+          <div class='card'>
+            <img src='./admin_area/product_images/$product_image' class='card-img-top' alt='...'>
+            <div class='card-body'>
+              <h5 class='card-title'>$product_title</h5>
+              <p class='card-text'>$product_description</p>
+              <a href='#' class='btn btn-info'>Add to cart</a>
+              <a href='#' class='btn btn-secondary'>View More</a>
             </div>
           </div>
         </div>
+          ";
+        }
+        ?>
       </div>
     </div>
     <div class="col-md-2 bg-secondary p-0">
