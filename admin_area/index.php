@@ -50,9 +50,6 @@
             if(isset($_GET['insert_brand'])){
                 include('insert_brands.php');
             }
-            // if(isset($_GET['insert_product'])){
-            //     include('insert_product.php');
-            // }
         ?>
     </div>
 
