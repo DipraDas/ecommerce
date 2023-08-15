@@ -90,15 +90,7 @@ include('./functions/common_function.php');
           </a>
         </li>
         <?php
-        $selectBrand = "SELECT * FROM `brand`";
-        $result_brand = mysqli_query($connection, $selectBrand);
-        while ($row_data = mysqli_fetch_assoc($result_brand)) {
-          $brand_id = $row_data['brand_id'];
-          $brand_name = $row_data['brand_name'];
-          echo " <li class='nav-item bg-secondary'>
-            <a href='index.php?brand=$brand_id``~' class='nav-link text-light'>$brand_name</a>
-          </li>";
-        }
+        showBrand();
         ?>
         <li class="nav-item bg-info">
           <a href="" class="nav-link text-light">
@@ -106,15 +98,7 @@ include('./functions/common_function.php');
           </a>
         </li>
         <?php
-        $selectCategory = "SELECT * FROM `category`";
-        $result_category = mysqli_query($connection, $selectCategory);
-        while ($row_data = mysqli_fetch_assoc($result_category)) {
-          $category_id = $row_data['category_id'];
-          $category_name = $row_data['category_name'];
-          echo " <li class='nav-item bg-secondary'>
-            <a href='index.php?category=$category_id' class='nav-link text-light'>$category_name</a>
-          </li>";
-        }
+        showCategories();
         ?>
       </ul>
     </div>
