@@ -43,9 +43,9 @@ include('./functions/common_function.php');
               <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-cart-shopping"></i><sup>1</sup></a>
             </li>
           </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+          <form class="d-flex" method="get" action="search_product.php">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_data">
+            <input type="submit" value="Search" name="search_data_product">
           </form>
         </div>
       </div>
