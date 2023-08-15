@@ -21,7 +21,7 @@ include('./functions/common_function.php');
         <!-- Navbar  -->
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="/index.php">Navbar</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -43,7 +43,7 @@ include('./functions/common_function.php');
                             <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-cart-shopping"></i><sup>1</sup></a>
                         </li>
                     </ul>
-                    <form class="d-flex" method="get">
+                    <form class="d-flex" method="get" action="search_product.php">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_data">
                         <input type="submit" value="Search" name="search_data_product">
                     </form>
@@ -76,8 +76,9 @@ include('./functions/common_function.php');
         <div class="col-md-10">
             <h4>Product</h4>
             <div class="row">
+
                 <?php
-                searchProduct();
+                getAllProducts();
                 getUniqueCategories();
                 getUniqueBrands();
                 ?>
