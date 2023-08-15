@@ -9,6 +9,7 @@ function getProducts()
             $select_query = "SELECT * FROM `products` ORDER BY rand() LIMIT 0,3";
             $result_query = mysqli_query($connection, $select_query);
             while ($row = mysqli_fetch_assoc($result_query)) {
+                $product_id = $row['product_id'];
                 $product_title = $row['product_title'];
                 $product_description = $row['product_description'];
                 $product_price = $row['product_price'];
@@ -22,7 +23,7 @@ function getProducts()
                             <p class='card-text'>$product_description</p>
                             <p class='card-text'>$product_price</p>
                             <a href='#' class='btn btn-info'>Add to cart</a>
-                            <a href='#' class='btn btn-secondary'>View More</a>
+                            <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
                         </div>
                     </div>
                 </div>
@@ -39,6 +40,7 @@ function getAllProducts()
             $select_query = "SELECT * FROM `products`";
             $result_query = mysqli_query($connection, $select_query);
             while ($row = mysqli_fetch_assoc($result_query)) {
+                $product_id = $row['product_id'];
                 $product_title = $row['product_title'];
                 $product_description = $row['product_description'];
                 $product_price = $row['product_price'];
@@ -52,7 +54,7 @@ function getAllProducts()
                             <p class='card-text'>$product_description</p>
                             <p class='card-text'>$product_price</p>
                             <a href='#' class='btn btn-info'>Add to cart</a>
-                            <a href='#' class='btn btn-secondary'>View More</a>
+                            <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
                         </div>
                     </div>
                 </div>
@@ -73,6 +75,7 @@ function getUniqueCategories()
             echo "No product found in this category.";
         }
         while ($row = mysqli_fetch_assoc($result_query)) {
+            $product_id = $row['product_id'];
             $product_title = $row['product_title'];
             $product_description = $row['product_description'];
             $product_price = $row['product_price'];
@@ -86,7 +89,7 @@ function getUniqueCategories()
                             <p class='card-text'>$product_description</p>
                             <p class='card-text'>$product_price</p>
                             <a href='#' class='btn btn-info'>Add to cart</a>
-                            <a href='#' class='btn btn-secondary'>View More</a>
+                            <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
                         </div>
                     </div>
                 </div>
@@ -106,6 +109,7 @@ function getUniqueBrands()
             echo "No product found in this brand.";
         }
         while ($row = mysqli_fetch_assoc($result_query)) {
+            $product_id = $row['product_id'];
             $product_title = $row['product_title'];
             $product_description = $row['product_description'];
             $product_price = $row['product_price'];
@@ -119,7 +123,7 @@ function getUniqueBrands()
                             <p class='card-text'>$product_description</p>
                             <p class='card-text'>$product_price</p>
                             <a href='#' class='btn btn-info'>Add to cart</a>
-                            <a href='#' class='btn btn-secondary'>View More</a>
+                            <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
                         </div>
                     </div>
                 </div>
@@ -141,6 +145,7 @@ function searchProduct()
         }
     }
     while ($row = mysqli_fetch_assoc($result_query)) {
+        $product_id = $row['product_id'];
         $product_title = $row['product_title'];
         $product_description = $row['product_description'];
         $product_price = $row['product_price'];
@@ -154,7 +159,7 @@ function searchProduct()
                             <p class='card-text'>$product_description</p>
                             <p class='card-text'>$product_price</p>
                             <a href='#' class='btn btn-info'>Add to cart</a>
-                            <a href='#' class='btn btn-secondary'>View More</a>
+                            <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
                         </div>
                     </div>
                 </div>
