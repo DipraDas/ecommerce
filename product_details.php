@@ -40,7 +40,7 @@ include('./functions/common_function.php');
                             <a class="nav-link active" aria-current="page" href="#">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-cart-shopping"></i><sup>1</sup></a>
+                            <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-cart-shopping"></i><sup><?php cart_items()?></sup></a>
                         </li>
                     </ul>
                     <form class="d-flex" method="get" action="search_product.php">
@@ -51,6 +51,7 @@ include('./functions/common_function.php');
             </div>
         </nav>
     </div>
+    <?php addToCart() ?>
     <!-- Second Child  -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
         <div class="container-fluid">
@@ -76,30 +77,8 @@ include('./functions/common_function.php');
         <div class="col-md-10">
             <h4>Product</h4>
             <div class="row">
-                <div class="col-md-4">
-                    <div class='card'>
-                        <img src='./admin_area/product_images/$product_image' class='card-img-top' alt='...'>
-                        <div class='card-body'>
-                            <h5 class='card-title'>$product_title</h5>
-                            <p class='card-text'>$product_description</p>
-                            <p class='card-text'>$product_price</p>
-                            <a href='#' class='btn btn-info'>Add to cart</a>
-                            <a href='#' class='btn btn-secondary'>View More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <h3>Related Product</h3>
-                    <div class="row">
-                        <div class="col-md-6">
-
-                        </div>
-                        <div class="col-md-6">
-                            
-                        </div>
-                    </div>
-                </div>
                 <?php
+                viewProductDetails();
                 getUniqueCategories();
                 getUniqueBrands();
                 ?>

@@ -51,6 +51,7 @@ include('./functions/common_function.php');
             </div>
         </nav>
     </div>
+    <?php addToCart() ?>
     <!-- Second Child  -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
         <div class="container-fluid">

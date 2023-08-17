@@ -40,7 +40,7 @@ include('./functions/common_function.php');
                             <a class="nav-link active" aria-current="page" href="#">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-cart-shopping"></i><sup>1</sup></a>
+                            <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-cart-shopping"></i><sup><?php cart_items()?></sup></a>
                         </li>
                     </ul>
                     <form class="d-flex" method="get">
@@ -51,6 +51,7 @@ include('./functions/common_function.php');
             </div>
         </nav>
     </div>
+    <?php addToCart() ?>
     <!-- Second Child  -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
         <div class="container-fluid">
