@@ -40,7 +40,7 @@ include('./functions/common_function.php');
               <a class="nav-link active" aria-current="page" href="#">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-cart-shopping"></i><sup><?php cart_items()?></sup></a>
+              <a class="nav-link active" aria-current="page" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup><?php cart_items()?></sup></a>
             </li>
             <li class="nav-item nav-link">Total Price: <?php totalCartPrice()?></li>
           </ul>
