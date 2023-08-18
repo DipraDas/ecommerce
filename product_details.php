@@ -42,6 +42,7 @@ include('./functions/common_function.php');
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-cart-shopping"></i><sup><?php cart_items()?></sup></a>
                         </li>
+                        <li class="nav-item nav-link">Total Price: <?php totalCartPrice()?></li>
                     </ul>
                     <form class="d-flex" method="get" action="search_product.php">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_data">

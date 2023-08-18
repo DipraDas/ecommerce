@@ -301,3 +301,23 @@ function cart_items()
     }
     echo $count_cart_items;
 }
+
+function totalCartPrice()
+{
+    global $connection;
+    $total_price = 0;
+    $get_ip_address = getIPAddress();
+    $cart_query = "SELECT * FROM `cart_details` WHERE ip_address='$get_ip_address'";
+    $result_cart = mysqli_query($connection, $cart_query);
+    while ($row_data = mysqli_fetch_array($result_cart)) {
+        $product_id = $row_data['product_id'];
+        $product_query = "SELECT * FROM `products` WHERE product_id=$product_id";
+        $result_products = mysqli_query($connection, $product_query);
+        while ($row_product_price = mysqli_fetch_array($result_products)) {
+            $product_price = array($row_product_price['product_price']);
+            $product_price_sum = array_sum($product_price);
+        }
+        $total_price += $product_price_sum;
+    }
+    echo "$total_price";
+}
